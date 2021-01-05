@@ -27,7 +27,7 @@ b2 <- breakpoints(df$time.series.2 ~ 1, h = 0.05, breaks = 8)
 png("figures/plot1.png", 800, 480)
 par(mar = c(4,4,1,0.5))
 plot(log(df$mov.avg.p1), type = "l", ylim = c(-2, 8),
-     ylab = "cases.confirmed / mov.avg.p1 (3 weeks)",
+     ylab = "cases.confirmed / mov.avg(p1*d) (3 weeks)",
      xlab = "day", col = "gray",
      axes = FALSE)
 axis(1)
@@ -45,7 +45,7 @@ dev.off()
 png("figures/plot2.png", 800, 480)
 par(mar = c(4,4,1,0.5))
 plot(log(df$mov.avg.p1.chart), type = "l", ylim = c(-2, 8),
-     ylab = "mov.avg.p1 (1 week) / mov.avg.p1 (3 weeks)",
+     ylab = "mov.avg(p1*d)  (1 week) / mov.avg(p2*d) (3 weeks)",
      xlab = "day", col = "gray",
      axes = FALSE)
 axis(1)

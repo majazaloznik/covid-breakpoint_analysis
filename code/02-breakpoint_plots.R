@@ -61,20 +61,14 @@ dev.off()
 # Phase diagram
 ###############################################################################
 
-# Classic palette BuPu, with 4 colors
-coul <- brewer.pal(4, "PuOr") 
-coul <- wes_palette("Zissou1", 5)
-# Add more colors to this palette :
-coul <- rev(colorRampPalette(coul)(nrow(df)))
-
 png("figures/phase.png", 800, 480)
 par(mar = c(4,4,4,0.5))
 plot(df$mov.avg.p2, df$mov.avg.p1, 
      log = c("xy"),
      type = "b", 
      col = rev(viridis::viridis(nrow(df))),
-     ylab = "mov.avg.p1 (1 week)",
-     xlab = "mov.avg.p2 (3 weeks)", axes = FALSE)
+     ylab = "mov.avg(p1*d) (1 week)",
+     xlab = "mov.avg(p2*d) (3 weeks)", axes = FALSE)
 mtext(side = 3, line = 2, adj = 0,
       text = "Phase diagram of moving averages of daily confirmed cases of COVID-19")
 marks <- c(1, 10, 100, 1000)
@@ -84,7 +78,8 @@ grid (NULL,NULL, lty = "93", col = "cornsilk2")
 
 points(df$mov.avg.p2[b2[[1]]],
        df$mov.avg.p1[b2[[1]]],
-       pch = 18, cex = 2)
+       pch = 18, cex = 2, col = "red")
+legend(200, 5, "breakpoints", pch = 18, pt.cex = 2,  bty = "n", col = "red")
 text(df$mov.avg.p2[1],
        df$mov.avg.p1[1],
        "4.3.2020", cex = 0.8)

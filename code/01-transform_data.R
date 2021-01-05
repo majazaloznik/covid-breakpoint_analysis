@@ -34,7 +34,10 @@ rownames(df) <- NULL
 
 # calculate moving average - right aligned
 df$mov.avg.p1.chart <- rollmean(df$cases.confirmed, d * p1, na.pad = TRUE, align = "center")
-df$mov.avg.p1 <- rollmean(df$cases.confirmed, d * p1, na.pad = TRUE, align = "right")
+df$mov.avg.p1 <- ifelse(as.numeric(rownames(df)) < 7,
+                        cumsum(df$cases.confirmed)/as.numeric(rownames(df)),
+                        rollmean(df$cases.confirmed, d * p1, na.pad = TRUE, align = "right"))
+
 df$mov.avg.p2 <-  ifelse(as.numeric(rownames(df)) < 21,
                          cumsum(df$cases.confirmed)/as.numeric(rownames(df)),
                          rollmean(df$cases.confirmed, d * p2, na.pad = TRUE, align = "right"))

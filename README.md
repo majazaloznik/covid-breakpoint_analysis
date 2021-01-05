@@ -2,7 +2,7 @@
 
 by [Luka Medic](https://github.com/luka-medic) ([implementacija mz](code/))
 
-Jiang, Zhao & Shao (2020) [Time series analysis of COVID-19 infection curve: A change-point perspective](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7392157/pdf/main.pdf)
+Jiang, Zhao & Shao (2020) [Time series analysis of COVID-19 infection curve: A change-point perspective](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7392157/pdf/main.pdf) (bral @Nejc Davidović)
 
 1. V  članku so vzeli `data=log(cases.confirmed.todate)`, gledali pa so prelome na linearnih odsekih `y~kx+n`.
 2. `cases.confirmed.todate` je "zvezna funkcija", ker je integral `cases.confirmed`.

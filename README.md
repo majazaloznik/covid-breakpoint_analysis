@@ -1,11 +1,11 @@
 ### exploring struccplot::breakpoints() to look for breaks in covid data
 
-by [Luka Medic](https://github.com/luka-medic) ([implementacija mz](code/))
+by [Luka Medic](https://github.com/luka-medic) ([implementacija mz](code/))(review [Žiga Brenčič](https://github.com/zigabrencic))
 
-Jiang, Zhao & Shao (2020) [Time series analysis of COVID-19 infection curve: A change-point perspective](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7392157/pdf/main.pdf) (bral @Nejc Davidović)
+Jiang, Zhao & Shao (2020) [Time series analysis of COVID-19 infection curve: A change-point perspective](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7392157/pdf/main.pdf) (bral Nejc Davidović)
 
 1. V  članku so vzeli `data=log(cases.confirmed.todate)`, gledali pa so prelome na linearnih odsekih `y~kx+n`.
-2. `cases.confirmed.todate` je "zvezna funkcija", ker je integral `cases.confirmed`.
+2. `cases.confirmed.todate` (kumulativno potrjeni primeri) je "zvezna funkcija", ker je integral `cases.confirmed` (dnevno potrjeni primeri).
 3. Ker je zvezna, ni mogoč prelom `n`. Prelomi se lahko samo `k`. Kar ni nič drugega kot sprememba/prelom odvoda `y`.
 4. To pomeni, da je ekvivalentno reševati problem: `data=diff(log(cases.confirmed.todate))` na konstantnih odsekih `y~k`.
 5. V zvezni limiti velja: `diff(log(cases.confirmed.todate)) ->  d/dx [log( integral(cases.confirmed) )] = cases.confirmed/cases.confirmed.todate`.

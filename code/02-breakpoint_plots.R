@@ -36,7 +36,7 @@ lines(df$time.series.1, type = "p", cex = 0.8,
       col = rev(viridis::viridis(nrow(df))))
 abline(v = b1[[1]] , col = "red", lty = "65")
 legend(250, 6, col = "gray", lty = 1, 
-       legend = "7d centered \n moving average \n of confirmed cases", 
+       legend = "7d centered \n moving average \n of confirmed cases \n (logged)", 
        cex = 1, bty = "n")
 dev.off()
 
@@ -54,7 +54,7 @@ lines(df$time.series.2, type = "p", cex = 0.8,
       col = rev(viridis::viridis(nrow(df))))
 abline(v = b2[[1]] -7 , col = "red", lty = "65")
 legend(250, 6, col = "gray", lty = 1, 
-       legend = "7d right aligned \n moving average \n of confirmed cases", 
+       legend = "7d right aligned \n moving average \n of confirmed cases \n (logged)", 
        cex = 1, bty = "n")
 dev.off()
 

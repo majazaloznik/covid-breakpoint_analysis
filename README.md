@@ -6,7 +6,7 @@ Jiang, Zhao & Shao (2020) [Time series analysis of COVID-19 infection curve: A c
 
 1. V  članku so vzeli `data=log(cases.confirmed.todate)`, gledali pa so prelome na linearnih odsekih `y~kx+n`.
 2. `cases.confirmed.todate` (kumulativno potrjeni primeri) je "zvezna funkcija", ker je integral `cases.confirmed` (dnevno potrjeni primeri).
-3. Ker je zvezna, ni mogoč prelom `n`. Prelomi se lahko samo `k`. Kar ni nič drugega kot sprememba/prelom odvoda `y`.
+3. Ker je zvezna, ni mogoč prelom `n`. Prelomi se lahko samo `k`*. Kar ni nič drugega kot sprememba/prelom odvoda `y`.
 4. To pomeni, da je ekvivalentno reševati problem: `data=diff(log(cases.confirmed.todate))` na konstantnih odsekih `y~k`.
 5. V zvezni limiti velja: `diff(log(cases.confirmed.todate)) -> d/dx [log( integral(cases.confirmed) )] = cases.confirmed/integral(case.confirmed) = cases.confirmed/cases.confirmed.todate`
 6. To pomeni, da v tistem članku niso delali nič drugega, kot z navadnim BP analizirali  `data=cases.confirmed/cases.confirmed.todate`.
@@ -18,3 +18,6 @@ Jiang, Zhao & Shao (2020) [Time series analysis of COVID-19 infection curve: A c
 11. Narišemo lahko fazni prostor ali časovno vrsto (ki jo lahko analiziramo z BP).
 ![phase](figures/phase.png)
 ![plot2](figures/plot2.png)
+
+*1. prelom `n`, 2. prelom `k`, 3. prelom `k` in `n`
+![footnote](images/image.png)

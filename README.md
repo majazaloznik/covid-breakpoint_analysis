@@ -19,5 +19,5 @@ Jiang, Zhao & Shao (2020) [Time series analysis of COVID-19 infection curve: A c
 ![phase](figures/phase.png)
 ![plot2](figures/plot2.png)
 
-*1. prelom `n`, 2. prelom `k`, 3. prelom `k` in `n`
+*1. prelom `n`, 2. prelom `k`, 3. prelom `k` in `n`. 
 ![footnote](images/image.png)

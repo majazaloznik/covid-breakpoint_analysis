@@ -1,1 +1,44 @@
 \chapter{Structural changes}
+
+\triplePlot{sketches/01/k_break.png}{sketches/01/n_break.png}{sketches/01/k_n_break.png}
+
+\begin{itemize}
+    \item Let $y(x)$ be piecewise exponential function.
+    \item Then $\log(y(x))$ is piecewise linear function.
+    \item {Then:
+        $$ \frac{d}{dx}\log(y(x)) = \frac{y'(x)}{y(x)}$$
+        is piecewise constant function.
+    }
+\end{itemize}
+
+\textbf{Definition:}
+
+We can introduce the ratio in the continuous limit as
+
+$$ \text{ratio}_w[y(x)] = \frac{y(x)}{\int_{x - w}^{x}}y(\xi)d\xi $$
+
+and in discrete limit as:
+
+$$ \text{ratio}_w[y(x_i)] = \frac{y(x_i)}{\sum_{j = i - w}^{??}y(x_j)} $$
+
+\textbf{Example:}
+
+For $w = 3$:
+
+$$ \text{ratio}_3[y(x_i)] =
+\begin{cases}
+    \frac{r_1^{x_i}}{r_i^{x_i - 2} + r_i^{x_i - 1} + r_i^{x_i}} = \frac{1}{1 + r_1^{-1} + r_1^{-2}}  & \forall x_i < 0  \\
+    \frac{1}{1 + r_1^{-1} + r_1^{-2}} &  x_i 2 \leq \forall x_i
+\end{cases}
+$$
+
+\section{Specific to COVID-19 analysis}
+
+We will use:
+
+\begin{itemize}
+    \item{ For daily confirmed cases:
+        $$ \frac{dy(x)}{dx} $$
+    }
+    \item And $y(x)$ for cumulative number of all cases to date.
+\end{itemize}

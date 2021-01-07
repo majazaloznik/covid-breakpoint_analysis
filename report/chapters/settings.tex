@@ -1,0 +1,275 @@
+%------------------------------------------------------------------------
+%% Document packages
+%------------------------------------------------------------------------
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage[T1]{fontenc}
+\usepackage{fancyhdr}
+\usepackage[sort, authoryear]{natbib}
+
+% needed for custom colors
+\usepackage[dvipsnames]{xcolor} % needs to be declared before tikz or pstricks package
+\usepackage{tikz}
+
+% package needed for "clickable" linked table of content
+\usepackage[pdfencoding=auto]{hyperref}
+
+% removing paragraph indents
+\usepackage{parskip}
+
+\usepackage{amsmath} % needed for text in equations
+
+% suppress pdf group warnings
+\pdfsuppresswarningpagegroup=1
+
+% don't strech page content from top to bottom
+\raggedbottom
+
+%
+\usepackage{minitoc}
+%------------------------------------------------------------------------
+% Usefull commands
+%------------------------------------------------------------------------
+
+\definecolor{lightBlue}{HTML}{268bd2}
+
+% message command -> that we hide in the final version
+\newcommand{\chapterMessage}[1]{
+    \fcolorbox{lightBlue}{white}{\begin{minipage}{40em}
+    {\color{lightBlue} Message:}
+              #1
+    \end{minipage}}
+}
+
+\usepackage{ifthen}
+
+\newcommand{\eq}[2][none]{
+\begin{equation}
+#2
+\ifthenelse{
+    \equal{#1}{none}
+    }{
+    % no label specified
+    }{
+    \label{#1}
+    }
+\end{equation}
+}
+
+\newcommand{\addChapter}[1]{
+    \input{./chapters/#1}
+    \pagebreak
+}
+
+% todo if this is the first occurence of this abberivation print full text (aberivation) otherwise print abberivation
+% Finate Differences Method
+% FEM, BEM
+\newcommand{\abberivation}[1]{
+    #1
+}
+
+\newcommand{\q}[2]{
+    \textbf{Question:} #1\\
+    \smallskip
+    #2
+}
+
+% -
+% plots
+% -
+% for subfigure
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{graphicx} % needed for includegraphics
+\usepackage{xparse} % imports \NewDocumentCommand so we can define functions with custom parameters
+\usepackage{float} %H for figure positioning
+
+\NewDocumentCommand{\plot}{O{none} O{none} m}{
+\begin{figure}[H]
+\begin{center}
+\begin{subfigure}[b]{0.6\textwidth}
+\includegraphics[width= \textwidth]{#3}
+\end{subfigure}
+% adding the caption
+\ifthenelse{
+\equal{#1}{none}
+    }{
+    % no label specified
+    }{
+    \caption{#1}
+    }
+
+% adding the label
+\ifthenelse{
+\equal{#2}{none}
+    }{
+    % no label specified
+    }{
+    \label{#2}
+    }
+\end{center}
+\end{figure}
+}
+
+\NewDocumentCommand{\dualPlot}{O{none} O{none} m m}{
+\begin{figure}[H]
+\begin{center}
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics[width= \textwidth]{#3}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics[width= \textwidth]{#4}
+\end{subfigure}
+
+% adding the caption
+\ifthenelse{
+\equal{#1}{none}
+    }{
+    % no label specified
+    }{
+    \caption{#1}
+    }
+
+% adding the label
+\ifthenelse{
+\equal{#2}{none}
+    }{
+    % no label specified
+    }{
+    \label{#2}
+    }
+\end{center}
+\end{figure}
+}
+
+\NewDocumentCommand{\triplePlot}{O{none} O{none} m m m}{
+\begin{figure}[H]
+\begin{center}
+\begin{subfigure}[b]{0.32\textwidth}
+\includegraphics[width= \textwidth]{#3}
+\end{subfigure}
+\begin{subfigure}[b]{0.32\textwidth}
+\includegraphics[width= \textwidth]{#4}
+\end{subfigure}
+\begin{subfigure}[b]{0.32\textwidth}
+\includegraphics[width= \textwidth]{#5}
+\end{subfigure}
+
+% adding the caption
+\ifthenelse{
+\equal{#1}{none}
+    }{
+    % no label specified
+    }{
+    \caption{#1}
+    }
+
+% adding the label
+\ifthenelse{
+\equal{#2}{none}
+    }{
+    % no label specified
+    }{
+    \label{#2}
+    }
+\end{center}
+\end{figure}
+}
+
+\NewDocumentCommand{\quarterPlot}{O{none} O{none}  m m m m}{
+\begin{figure}[H]
+\begin{center}
+\begin{subfigure}[b]{0.24\textwidth}
+\includegraphics[width= \textwidth]{#3}
+\end{subfigure}
+\begin{subfigure}[b]{0.24\textwidth}
+\includegraphics[width= \textwidth]{#4}
+\end{subfigure}
+\begin{subfigure}[b]{0.24\textwidth}
+\includegraphics[width= \textwidth]{#5}
+\end{subfigure}
+\begin{subfigure}[b]{0.24\textwidth}
+\includegraphics[width= \textwidth]{#6}
+\end{subfigure}
+
+% adding the caption
+\ifthenelse{
+\equal{#1}{none}
+    }{
+    % no label specified
+    }{
+    \caption{#1}
+    }
+
+% adding the label
+\ifthenelse{
+\equal{#2}{none}
+    }{
+    % no label specified
+    }{
+    \label{#2}
+    }
+\end{center}
+\end{figure}
+}
+
+% ------------------------------------------------------------
+% code highlithing: xcoler and listings needed
+% ------------------------------------------------------------
+
+\definecolor{eminence}{RGB}{108,48,130}
+\definecolor{weborange}{RGB}{255,140,0}
+\definecolor{lightBlue}{HTML}{268bd2}
+\definecolor{lightBlack}{HTML}{585858}
+\definecolor{lightRed}{HTML}{D00000}
+\definecolor{lightGreen}{HTML}{20B2AA}
+
+\usepackage{listings}
+
+\lstset {
+    language=C++,
+    tabsize=4,
+    showstringspaces=false,
+    commentstyle=\color{lightGreen},
+    keywordstyle=\color{eminence},
+    stringstyle=\color{lightRed},
+    basicstyle=\small\ttfamily\color{lightBlack}, % basic font setting
+    emph={int,char,double,float,unsigned,void,bool},
+    emphstyle={\color{lightBlue}},
+    % keyword highlighting
+    classoffset=1, % starting new class
+    otherkeywords={>,<,.,;,-,!,=,~},
+    morekeywords={>,<,.,;,-,!,=,~},
+    keywordstyle=\color{weborange},
+    classoffset=0,
+    xleftmargin=.1\textwidth,
+}
+
+\lstnewenvironment{code}[1]{
+\renewcommand\lstlistingname{Code}%
+\lstset{caption={#1}}
+}%
+{}
+
+\usepackage{tcolorbox}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\newtcbox{\cw}{nobeforeafter,
+colframe=lightBlue!10!white,
+colback=lightBlue!10!white,
+boxrule=0.5pt,
+arc=3pt,
+fontupper=\color{lightBlue}\ttfamily\bfseries,
+boxsep=0pt,
+left=2pt,
+right=2pt,
+top=3pt,
+bottom=3pt,
+tcbox raise base}
+
+\newcommand{\todo}[1]{
+    \cw{todo}: #1
+}

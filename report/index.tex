@@ -1,0 +1,51 @@
+%------------------------------------------------------------------------
+%% Document setup
+%------------------------------------------------------------------------
+\documentclass[a4paper,12pt]{book}
+
+\input{./chapters/settings.tex}
+
+%------------------------------------------------------------------------
+%% Document title
+%------------------------------------------------------------------------
+\title{Analysis of COIVD-19 time series for Slovenia:\\
+    \vskip.5em
+    \large Detection of structural changes
+}
+\date{\today}
+\author{Luka Medic, Maja Zaloznik, Nejc Davidovic, Zarja Mursic, Ziga Brencic\\
+    \vskip.5em
+    Sledilnik.org
+}
+
+
+
+%------------------------------------------------------------------------
+%% Document content
+%------------------------------------------------------------------------
+\begin{document}
+    \dominitoc% Initialization
+
+    \maketitle
+    \tableofcontents
+    \pagebreak
+    \index{BibTeX}
+    %------------------------------------------------------------------------
+    %% Chapters
+    %------------------------------------------------------------------------
+    \addChapter{00_motivation.tex}
+    \addChapter{01_structural_changes.tex}
+    \addChapter{02_methods.tex}
+
+    %------------------------------------------------------------------------
+    %% Citations
+    %------------------------------------------------------------------------
+    \pagebreak
+    \input{./chapters/bibliography.tex}
+    % \cite{ams} citation from bibliography
+    % ~\ref{ch2} reference to a section/chapter
+
+    %------------------------------------------------------------------------
+\end{document}
+
+
